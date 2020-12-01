@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:5101}
+
+spring:
+  application:
+    name: dn-user-service
+## BEGIN: Auto Generate TABLE
+#  jpa:
+#    generate-ddl: true
+#    hibernate:
+#      # possible values: validate | update | create | create-drop
+#      ddl-auto: create-drop
+## END: Auto Generate TABLE
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/dn_user_service}
+    username: ${POSTGRES_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD:123456}
+    driver-class-name: org.postgresql.Driver
+
+eureka:
+  instance:
+    hostname: ${DOMAIN_NAME:localhost}
+    nonSecurePort: 80
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
