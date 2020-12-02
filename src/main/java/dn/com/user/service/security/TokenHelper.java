@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -111,7 +112,9 @@ public class TokenHelper {
 
     private String generateAudience(Device device) {
         String audience = AUDIENCE_UNKNOWN;
-        if (device.isNormal()) {
+        if(Objects.isNull(device)){
+            return audience;
+        } else if (device.isNormal()) {
             audience = AUDIENCE_WEB;
         } else if (device.isTablet()) {
             audience = AUDIENCE_TABLET;
@@ -135,12 +138,12 @@ public class TokenHelper {
     }
 
     private Date generateExpirationDate(Device device) {
-        long expiresIn = device.isTablet() || device.isMobile() ? MOBILE_EXPIRES_IN : EXPIRES_IN;
+        long expiresIn = Objects.nonNull(device) && (device.isMobile() || device.isTablet()) ? MOBILE_EXPIRES_IN : EXPIRES_IN;
         return new Date(timeProvider.now().getTime() + expiresIn * 1000);
     }
 
     public int getExpiredIn(Device device) {
-        return device.isMobile() || device.isTablet() ? MOBILE_EXPIRES_IN : EXPIRES_IN;
+        return Objects.nonNull(device) && (device.isMobile() || device.isTablet()) ? MOBILE_EXPIRES_IN : EXPIRES_IN;
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
