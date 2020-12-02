@@ -1,3 +1,12 @@
+app:
+  name: dn-user-service
+
+jwt:
+  header: Authorization
+  expires_in: 300 # 5 minutes
+  mobile_expires_in: 600 # 10 minutes
+  secret: ${JWT_SECRET:Nghia@123}
+
 server:
   port: ${PORT:5101}
 
