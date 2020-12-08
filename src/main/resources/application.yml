@@ -35,7 +35,7 @@ eureka:
     hostname: ${DOMAIN_NAME:localhost}
     nonSecurePort: ${PORT_NON_SECURE:80}
     non-secure-port-enabled: true
-    virtual-host-name: virtual-host
+    home-page-url-path: https://${eureka.instance.hostname}/
   client:
     registerWithEureka: true
     fetchRegistry: true
