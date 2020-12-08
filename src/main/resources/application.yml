@@ -30,6 +30,8 @@ spring:
       client:
         url: ${ADMIN_DOMAIN:http://localhost:5003}
 
+
+
 eureka:
   instance:
     hostname: ${DOMAIN_NAME:localhost}
@@ -40,6 +42,7 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://user:password@localhost:5000}/eureka/
+    eureka-server-port: 80
 
 ## Config logger
 logging:
