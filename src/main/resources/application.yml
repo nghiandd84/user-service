@@ -30,11 +30,15 @@ spring:
       client:
         url: ${ADMIN_DOMAIN:http://localhost:5003}
 
+
+
 eureka:
   instance:
     hostname: ${DOMAIN_NAME:localhost}
+    nonSecurePort: ${PORT_NON_SECURE:80}
+    non-secure-port-enabled: true
     status-page-url: https://${eureka.instance.hostname}/actuator/info
-    home-page-url: https://${eureka.instance.hostname}/
+    home-page-url: https://${eureka.instance.hostname}/actuator
     health-check-url: https://${eureka.instance.hostname}/actuator/health
   client:
     registerWithEureka: true
