@@ -1,0 +1,13 @@
+### Access Log Root
+POST {{host}}/actuator/loggers/root
+
+### Change Log Level
+POST {{host}}/actuator/loggers/dn.com.user.service
+Content-Type: application/json
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36
+
+{"configuredLevel": "TRACE"}
+
+###
+
+
