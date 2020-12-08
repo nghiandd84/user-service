@@ -33,9 +33,9 @@ spring:
 eureka:
   instance:
     hostname: ${DOMAIN_NAME:localhost}
-    nonSecurePort: ${PORT_NON_SECURE:80}
-    non-secure-port-enabled: true
-    home-page-url-path: https://${eureka.instance.hostname}/
+    status-page-url: https://${eureka.instance.hostname}/info
+    home-page-url: https://${eureka.instance.hostname}/
+    health-check-url: https://${eureka.instance.hostname}/health
   client:
     registerWithEureka: true
     fetchRegistry: true
