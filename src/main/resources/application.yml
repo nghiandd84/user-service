@@ -34,6 +34,7 @@ eureka:
   instance:
     hostname: ${DOMAIN_NAME:localhost}
     nonSecurePort: ${PORT_NON_SECURE:80}
+    non-secure-port-enabled: true
   client:
     registerWithEureka: true
     fetchRegistry: true
