@@ -34,7 +34,7 @@ spring:
 eureka:
   instance:
     hostname: ${DOMAIN_NAME:localhost}
-#    nonSecurePort: ${PORT_NON_SECURE:${server.port}}
+    nonSecurePort: ${PORT_NON_SECURE:5002}
 #    non-secure-port-enabled: true
     status-page-url: ${GATEWAY_DOMAIN_URL:http://localhost:8888}/user-service/actuator/info
   client:
