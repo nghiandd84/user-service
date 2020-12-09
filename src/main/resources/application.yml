@@ -28,17 +28,15 @@ spring:
     admin:
       client:
         url: ${ADMIN_DOMAIN:http://localhost:5003}
-
-
+        instance:
+          service-url: ${GATEWAY_DOMAIN_URL:http://localhost:8888}/user-service
 
 eureka:
   instance:
     hostname: ${DOMAIN_NAME:localhost}
-    nonSecurePort: ${PORT_NON_SECURE:80}
-    non-secure-port-enabled: true
-#    status-page-url: https://${eureka.instance.hostname}/actuator/info
-#    home-page-url: https://${eureka.instance.hostname}/actuator
-#    health-check-url: https://${eureka.instance.hostname}/actuator/health
+#    nonSecurePort: ${PORT_NON_SECURE:${server.port}}
+#    non-secure-port-enabled: true
+    status-page-url: ${GATEWAY_DOMAIN_URL:http://localhost:8888}/user-service/actuator/info
   client:
     registerWithEureka: true
     fetchRegistry: true
@@ -50,8 +48,10 @@ logging:
   file:
     path: logs
     name: logs/client.log
+
 management:
   endpoint:
+
     logfile:
       external-file: logs/client.log
     loggers:
@@ -60,7 +60,6 @@ management:
     web:
       exposure:
         include: httptrace,loggers,health,info,metrics
-  server:
-    port: ${PORT_NON_SECURE:5002}
+
 
 
