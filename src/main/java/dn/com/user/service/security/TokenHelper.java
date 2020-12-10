@@ -23,7 +23,7 @@ import java.util.Objects;
 @Component
 public class TokenHelper {
 
-    @Value("${app.name}")
+    @Value("${spring.application.name}")
     private String APP_NAME;
 
     @Value("${jwt.secret}")

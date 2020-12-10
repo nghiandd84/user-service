@@ -1,5 +1,5 @@
-app:
-  name: dn-user-service
+#app:
+#  name: DN-USER-SERVICE
 
 jwt:
   header: Authorization
@@ -11,7 +11,7 @@ server:
 
 spring:
   application:
-    name: dn-user-service
+    name: DN-USER-SERVICE
 ## BEGIN: Auto Generate TABLE
 #  jpa:
 #    generate-ddl: true
