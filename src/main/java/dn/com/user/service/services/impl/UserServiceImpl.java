@@ -4,6 +4,7 @@ import dn.com.user.service.model.User;
 import dn.com.user.service.repository.UserRepository;
 import dn.com.user.service.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
+    @Cacheable(value = "users", key = "#username")
     public User findByUsername(String username) throws UsernameNotFoundException {
         User u = userRepository.findByUsername(username);
         return u;

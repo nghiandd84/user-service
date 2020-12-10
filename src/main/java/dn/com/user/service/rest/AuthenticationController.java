@@ -6,6 +6,8 @@ import dn.com.user.service.model.UserTokenState;
 import dn.com.user.service.security.TokenHelper;
 import dn.com.user.service.security.auth.JwtAuthenticationRequest;
 import dn.com.user.service.services.impl.CustomUserDetailsService;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.MediaType;
@@ -32,7 +34,10 @@ import java.util.Map;
 
 @RestController
 @RequestMapping( value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE )
+
 public class AuthenticationController {
+
+    private Log log = LogFactory.getLog(AuthenticationController.class);
 
     @Autowired
     TokenHelper tokenHelper;
@@ -54,6 +59,11 @@ public class AuthenticationController {
             HttpServletRequest request //,
 //            Device device
     ) throws AuthenticationException, IOException {
+        log.trace("This is a TRACE level message");
+        log.debug("This is a DEBUG level message");
+        log.info("This is an INFO level message");
+        log.warn("This is a WARN level message");
+        log.error("This is an ERROR level message");
         Device device = DeviceUtils.getCurrentDevice(request);
         // Perform the security
         final Authentication authentication = authenticationManager.authenticate(
