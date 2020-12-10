@@ -28,14 +28,14 @@ spring:
     admin:
       client:
         url: ${ADMIN_DOMAIN:http://localhost:5003}
-        instance:
-          service-url: ${GATEWAY_DOMAIN_URL:http://localhost:8888}/user-service
+#        instance:
+#          service-url: ${GATEWAY_DOMAIN_URL:http://localhost:8888}/user-service
 
 eureka:
   instance:
     hostname: ${DOMAIN_NAME:localhost}
     nonSecurePort: ${PORT_NON_SECURE:5002}
-    status-page-url: ${GATEWAY_DOMAIN_URL:http://localhost:8888}/user-service/actuator/info
+#    status-page-url: ${GATEWAY_DOMAIN_URL:http://localhost:8888}/user-service/actuator/info
   client:
     registerWithEureka: true
     fetchRegistry: true
